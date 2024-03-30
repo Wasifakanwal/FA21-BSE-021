@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Board from './Lab6Task/chessBoard';
-import LoopBoard from './Lab6Task/chessboardwithLoop';
+import Calculator from './Assignment3/DiscountCalculator';
+import StudentRecord from './Assignment3/StudentRecord';
 export default function App() {
   return (
     
    /* <Board></Board>*/
-   <LoopBoard></LoopBoard>
+   /*<Calculator></Calculator>*/
+   <StudentRecord></StudentRecord>
    
   );
 }
