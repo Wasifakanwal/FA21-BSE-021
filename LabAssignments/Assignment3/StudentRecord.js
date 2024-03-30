@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, Button, TextInput, FlatList, TouchableOpacity } from 'react-native'; 
 import React, { useState } from 'react'; 
-import { AntDesign } from '@expo/vector-icons';
+
 
 export default function StudentRecord() { 
 
