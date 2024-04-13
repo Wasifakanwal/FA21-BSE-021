@@ -6,6 +6,8 @@ import Calculator from './Assignment3/DiscountCalculator';
 import StudentRecord from './Assignment3/StudentRecord';
 import ContactListScreen from './Assignment2Part2/ContactHomePage';
 import ContactDetailsScreen from './Assignment2Part2/ContactDetailsPage';
+import { HomePage } from './Assignment2Part2/nimra';
+import { ProductDetailsPage } from './Assignment2Part2/nimra2';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -14,10 +16,17 @@ export default function App() {
    /* <Board></Board>*/
    /*<Calculator></Calculator>*/
   /* <StudentRecord></StudentRecord>*/
-  <NavigationContainer>
+  /*<NavigationContainer>
   <Stack.Navigator initialRouteName="ContactList">
     <Stack.Screen name="ContactList" component={ContactListScreen} options={{ title: 'Contacts' }} />
     <Stack.Screen name="ContactDetails" component={ContactDetailsScreen} options={{ title: 'Contact Details' }} />
+  </Stack.Navigator>
+</NavigationContainer>*/
+
+<NavigationContainer>
+  <Stack.Navigator initialRouteName="HomePage">
+    <Stack.Screen name="HomePage" component={HomePage} options={{ title: 'Product' }} />
+    <Stack.Screen name="ProductDetailsPage" component={ProductDetailsPage} options={{ title: 'Product Details' }} />
   </Stack.Navigator>
 </NavigationContainer>
   );

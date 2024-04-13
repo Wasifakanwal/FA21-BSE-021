@@ -12,7 +12,7 @@ const ContactListScreen = ({ navigation }) => {
         { id: 5, name: 'Saima Khan', number: '01258963552' },
         { id: 6, name: 'Lila Malik', number: '02205566258' },
         { id: 7, name: 'Muhammad Ali', number: '01459933688' },
-        // Add more contacts as needed
+        
     ]);
 
     const handleContactPress = (contact) => {
