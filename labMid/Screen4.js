@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text ,ImageBackground} from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { BarChart } from 'react-native-chart-kit';
 
 const Tab = createMaterialTopTabNavigator();
+
 
 // Define your prayers data
 const last7DaysPrayersData = {
@@ -11,6 +12,16 @@ const last7DaysPrayersData = {
   datasets: [
     {
       data: [20, 25, 18, 30, 35],
+      color: ['#FF5733', '#FFC300', '#C70039', '#900C3F', '#581845'], // Colors for each prayer
+    },
+  ],
+};
+// Define your prayers data
+const DailyData = {
+  labels: ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'],
+  datasets: [
+    {
+      data: [1, 1, 0, 1, 0],
       color: ['#FF5733', '#FFC300', '#C70039', '#900C3F', '#581845'], // Colors for each prayer
     },
   ],
@@ -26,10 +37,10 @@ const monthlyPrayersData = {
   ],
 };
 
-const Last7DaysScreen = () => (
+const DateRangeScreen = () => (
   <View style={styles.container}>
     <BarChart
-      data={last7DaysPrayersData}
+      data={DailyData}
       width={400}
       height={220}
       yAxisLabel=""
@@ -38,9 +49,9 @@ const Last7DaysScreen = () => (
         backgroundGradientFrom: 'purple',
         backgroundGradientTo: 'Beige',
         decimalPlaces: 0,
-        color: (opacity = 1) => ['#FF5733', '#FFC300', '#C70039', '#900C3F', '#581845'].map(color => `${color} ${opacity}`),
-        verticalLabelRotation: false, // Set to true for horizontal bar chart
-        horizontal: true // Make the bar chart horizontal
+        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+        
       }}
       style={{
         marginVertical: 8,
@@ -57,7 +68,41 @@ const Last7DaysScreen = () => (
       ))}
     </View>
     {/* Display the number of prayers offered */}
-    <Text style={styles.offeredPrayersText}>Offered - 35/35 prayers</Text>
+    <Text style={styles.offeredPrayersText}>Offered - 3/5 prayers</Text>
+  </View>
+);
+const Last7DaysScreen = () => (
+  <View style={styles.container}>
+    <BarChart
+      data={last7DaysPrayersData}
+      width={400}
+      height={220}
+      yAxisLabel=""
+      chartConfig={{
+        backgroundColor: 'Black',
+        backgroundGradientFrom: 'purple',
+        backgroundGradientTo: 'Beige',
+        decimalPlaces: 0,
+        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+        
+      }}
+      style={{
+        marginVertical: 8,
+        borderRadius: 16,
+      }}
+    />
+    {/* Display prayer names with colored square boxes */}
+    <View style={styles.prayerNamesContainer}>
+      {last7DaysPrayersData.labels.map((prayer, index) => (
+        <View key={index} style={styles.prayerNameItem}>
+          <View style={[styles.prayerColorBox, { backgroundColor: last7DaysPrayersData.datasets[0].color[index] }]} />
+          <Text style={styles.prayerNameText}>{prayer}</Text>
+        </View>
+      ))}
+    </View>
+    {/* Display the number of prayers offered */}
+    <Text style={styles.offeredPrayersText}>Offered - 27/35 prayers</Text>
   </View>
 );
 
@@ -73,8 +118,9 @@ const MonthlyScreen = () => (
         backgroundGradientFrom: 'purple',
         backgroundGradientTo: 'white',
         decimalPlaces: 0,
-        color: (opacity = 1) => ['#FF5733', '#FFC300', '#C70039', '#900C3F', '#581845'].map(color => `${color} ${opacity}`),
-        labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+      
         style: {
           borderRadius: 16,
         },
@@ -101,21 +147,19 @@ const MonthlyScreen = () => (
       ))}
     </View>
     {/* Display the number of prayers offered */}
-    <Text style={styles.offeredPrayersText}>Offered - 150/150 prayers</Text>
+    <Text style={styles.offeredPrayersText}>Offered - 110/150 prayers</Text>
   </View>
 );
 
 
 
 
-const DateRangeScreen = () => (
-  <View style={styles.container}>
-    {/* Your Data Range Screen content */}
-  </View>
-);
 
-const PreviousRecordScreen = () => (
-  <Tab.Navigator
+
+function  PreviousRecordScreen() {
+  return(
+   
+  <Tab.Navigator 
     tabBarOptions={{
       activeTintColor: 'white', // text color for selected tab
       inactiveTintColor: 'black', // text color for other tabs
@@ -146,14 +190,19 @@ const PreviousRecordScreen = () => (
     <Tab.Screen name="Monthly" component={MonthlyScreen} />
     <Tab.Screen name="Date Range" component={DateRangeScreen} />
   </Tab.Navigator>
-);
+  
+ 
+)
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
     justifyContent: 'center',
     alignItems: 'center',
+   
   },
+
   prayerNamesContainer: {
     flexDirection: 'row',
     alignItems: 'center',

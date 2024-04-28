@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet ,ScrollView,TouchableOpacity,Text} from 'react-native';
+import { View, StyleSheet,TouchableOpacity,Text} from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { Button } from 'react-native';
 
@@ -22,9 +22,7 @@ const CalendarScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Calendar
         markedDates={{
-          '2023-06-25': { selected: true, marked: true },
-          '2023-06-24': { marked: true },
-          '2023-06-26': { marked: true, dotColor: 'red', activeOpacity: 0,},
+
           [currentDate]: { selected: true, marked: true, selectedColor: 'black', textColor: 'white' },
         }}
 
@@ -33,17 +31,11 @@ const CalendarScreen = ({ navigation }) => {
           backgroundColor: '#ffffff',
           calendarBackground: '#ffffff',
           textSectionTitleColor: '#b6c1cd',
-          selectedDayBackgroundColor: 'black',
-          selectedDayTextColor: 'white',
-          todayTextColor: 'white',
           dayTextColor: 'black',
           textDisabledColor: '#d9e1e8',
-          dotColor: '#00adf5',
-          selectedDotColor: '#ffffff',
           arrowColor: '#00adf5',
           monthTextColor: '#000000',
           textMonthFontWeight: 'bold',
-          indicatorColor: 'blue',
           textDayFontFamily: 'monospace',
           textMonthFontFamily: 'monospace',
           textDayHeaderFontFamily: 'monospace',
@@ -53,9 +45,9 @@ const CalendarScreen = ({ navigation }) => {
         }}
         onDayPress={handleDatePress}
       />
-       <TouchableOpacity  onPress={handlePreviousRecord} >
-        <Text>Previous Record</Text>
-       </TouchableOpacity>
+       
+        <Button style={styles.button} title="previous Record"  color="purple" onPress={handlePreviousRecord}></Button>
+   
     </View>
   );
 };
@@ -64,6 +56,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  button:{
+    width:50,
+    borderBottomWidth:2,
+  }
 });
 
 export default CalendarScreen;

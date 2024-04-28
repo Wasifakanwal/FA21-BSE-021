@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity ,ScrollView} from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import { View, Text, StyleSheet, Image, TouchableOpacity ,ScrollView,ImageBackground} from 'react-native';
+import CheckBox from 'expo-checkbox';
 //import { CheckBox } from 'react-native';
 //import { useNavigation } from '@react-navigation/native';
 
@@ -53,7 +53,11 @@ import CheckBox from '@react-native-community/checkbox';
   };
 
   return (
-    <ScrollView>
+   <ImageBackground source={require('./assets/bg2.jpg')} // Provide the path to your background image
+   style={styles.backgroundImage}
+   resizeMode='cover'
+   
+ >
     <View style={styles.container}>
       {/* Fajr Prayer */}
       <View style={[styles.prayerContainer, { width: '80%' }]}>
@@ -186,7 +190,7 @@ import CheckBox from '@react-native-community/checkbox';
         <Text style={styles.streakButtonText}>Go to Streak Page</Text>
       </TouchableOpacity>
     </View>
-    </ScrollView>
+    </ImageBackground>
   );
 };
 
@@ -195,22 +199,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    
+  },
+  backgroundImage: {
+    flex: 1,
+    justifyContent:"center",
+    width: '100%', // Ensure the image covers the entire width of the screen
+    height: '100%',
+    
   },
   prayerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 15,
     borderRadius: 10,
     padding: 10,
     backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+   shadowRadius: 3.84,
+    
   },
   leftContent: {
     marginRight: 10,
@@ -244,8 +256,8 @@ const styles = StyleSheet.create({
     marginRight: 5, 
   },
   streakButton: {
-    marginTop: 20,
-    backgroundColor: 'lightblue',
+    
+    backgroundColor: 'purple',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,

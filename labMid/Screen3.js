@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Svg, { Circle, Text as SvgText, Defs, Use } from 'react-native-svg';
+import Svg, { Circle, Text as SvgText, Defs } from 'react-native-svg';
 
 const StreakScreen = ({navigation, route }) => {
     const { streakCount } = route.params;
     console.log("Streak count:", streakCount);
     return (
+       
         <View style={styles.container}>
             {/* Menu Button */}
             <TouchableOpacity style={styles.menuButton}>
@@ -22,9 +23,7 @@ const StreakScreen = ({navigation, route }) => {
                         <filter id="shadowOuter">
                             <feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="darkgrey" />
                         </filter>
-                        <filter id="shadowInner">
-                            <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="darkgrey" />
-                        </filter>
+                        
                     </Defs>
                     {/* Outer Circle with Shadow */}
                     <Circle cx="100" cy="100" r="80" fill="white" stroke="#E5E4E2" strokeWidth="11" filter="url(#shadowOuter)" />
@@ -67,6 +66,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+   
     title: {
         fontSize: 24,
         fontWeight: 'bold',
