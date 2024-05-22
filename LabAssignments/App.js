@@ -9,11 +9,27 @@ import ContactDetailsScreen from './Assignment2Part2/ContactDetailsPage';
 import Activity from './LabTasks/Actvity1';
 import Registration from './LabTasks/Registration';
 import Login from './LabTasks/Login';
+import BookFinderScreen from './LabTasks/Api';
+import Sensors from './LabTasks/sensors';
+import Accelermeter from './LabTasks/Accelometer';
+import Barometr from './LabTasks/Barometer';
+import { ParentComponent } from './ContextApiTask/Parent';
+
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    
+    <ParentComponent></ParentComponent>
+  //<Sensors></Sensors>
+ /* <NavigationContainer>
+  <Stack.Navigator initialRouteName="Main">
+  <Stack.Screen name="Main" component={MainScreen} options={{ title: 'Main Screen' }} />
+  <Stack.Screen name="Acclometer" component={Accelermeter} options={{ title: 'Acceleometr' }} />
+  <Stack.Screen name="Baromter" component={Barometr} options={{ title: 'Barometer' }} />
+
+   </Stack.Navigator>
+</NavigationContainer> */
+  //<Accelermeter></Accelermeter>
    /* <Board></Board>*/
    /*<Calculator></Calculator>*/
   /* <StudentRecord></StudentRecord>*/
@@ -30,13 +46,18 @@ export default function App() {
     <Stack.Screen name="ProductDetailsPage" component={ProductDetailsPage} options={{ title: 'Product Details' }} />
   </Stack.Navigator>
 </NavigationContainer>*/
+
+/*
 <NavigationContainer>
   <Stack.Navigator initialRouteName="Registration">
   <Stack.Screen name="Register" component={Registration} options={{ title: 'Registration page' }} />
   <Stack.Screen name="Login" component={Login} options={{ title: 'Login page' }} />
 
    </Stack.Navigator>
-</NavigationContainer>
+</NavigationContainer>*/
+//<BookFinderScreen></BookFinderScreen>
+
+
   );
 }
 

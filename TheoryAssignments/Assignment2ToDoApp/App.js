@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ToDoList from './ToDoApp';
+import ToDoListC from './TodoWithContext';
 export default function App() {
   return (
     <View style={styles.container}>
       <Text></Text>
-      <ToDoList></ToDoList>
+      <ToDoListC></ToDoListC>
       <StatusBar style="auto" />
     </View>
   );
